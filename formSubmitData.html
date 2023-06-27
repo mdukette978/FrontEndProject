@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formSubmitData</title>
+</head>
+<body>
+    
+    <main>
+        <h1>Your Meal Journal Entries</h1>
+        <div id="data"></div>
+    </main>
+
+
+    <script>
+        const json = localStorage.getItem('form');
+        const obj = JSON.parse(json);
+
+        for (key in obj) {
+            const markup = `
+            <div>
+                <span>${key}: ${obj[key]}</span>
+            </div>
+            `;
+            document.getElementById('data').innerHTML += markup;
+        }
+
+    </script>
+</body>
+</html>
